@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.loader {
+    height: 100vh;
+    background-color: #445755;
+}
+
+.loader .loader_blob {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    overflow: hidden;
+    left: calc(50% - 240px);
+    top:calc(50% - 240px);
+    /* 수평:h,수직:v,왼쪽:l,오른쪽:r, 위쪽:t,아래쪽:b */
+    border-radius: 20px;/* //TL,TR,BR,BL 수평수직 = */
+                       /*  수평       /      수직  */
+    /* border-radius: htl htr hbr hbl / vtl vtr vbr vbl ; */
+    overflow: hidden;
+    animation: go 6s linear infinite alternate;
+}
+.loader .loader_blob img {
+    width: 100%;
+}
+
+@keyframes go{
+    0%{border-radius: 55% 45% 56% 44% / 47% 54% 46% 53% ;}
+    50%{border-radius: 57% 43% 34% 66% / 47% 37% 63% 53% ;}
+    100%{border-radius: 38% 62% 49% 51% / 55% 53% 47% 45% ;}
+}
+
+.ro {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    left: calc(50% - 240px);
+    top:calc(50% - 240px);
+    animation: rotate 6s linear infinite alternate;
+}
+.ro .loader_blob2 {
+    position: absolute ;
+    left: 0; top: 0;
+    width: 480px;
+    height: 480px;
+    border: 1px solid #cdeeeb;
+    animation: go 6s linear infinite alternate;
+}
+
+.ro .loader_blob2.lb2 {
+    animation-delay: 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes rotate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
